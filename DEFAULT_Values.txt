@@ -1,0 +1,32 @@
+Set Default Values
+
+CREATE TABLE employee(
+    id INT NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    acc_type VARCHAR(50) NOT NULL DEFAULT "Savings"
+);
+
+
+NULL Data Type in MYSQL :- 
+
+INSERT INTO customers
+VALUES (NULL, NULL);
+
+
+NOT NULL IN MYSQL :-
+
+CREATE TABLE customers(
+    id INT NOT NULL,
+    name VARCHAR(20) NOT NULL
+);
+
+Use Of Not Null :-  
+INSERT INTO customer(id)
+VALUES (102);
+ -->> ERROR 1364 (HY000): Field 'name' doesn't have a default value.
+
+
+INSERT INTO customer
+VALUES (103, NULL);
+ --->> ERROR 1048 (23000): Column 'name' cannot be null
+

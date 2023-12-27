@@ -1,0 +1,18 @@
+Insert the Mulltiple Data into Table;
+
+CREATE TABLE students(
+    id INT,
+    name VARCHAR(20),    // VAR -->> Variable Character
+    class INT
+);
+
+
+"Multiple Data" :- 
+INSERT INTO students 
+VALUES (104, "saad", 8), (105, "Huzaifa", 12);
+
+
+"Reading Data from a TABLE" :-
+By using a SELECT query;
+
+SELECT * FROM students

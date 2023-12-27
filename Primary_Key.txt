@@ -1,0 +1,14 @@
+The Primary key constraints uniquely identifies each record in a table.
+
+Primary keys must contain UNIQUE Values and cannnot contain NULL values.
+
+A table can have only one primary key
+
+CREATE TABLE employee(
+    id INT NOT NULL PRIMARY KEY,   // unique key value
+    name VARCHAR(20) NOT NULL,
+    acc_type VARCHAR(50) NOT NULL DEFAULT "Savings
+);
+
+INSERT INTO employee(id, name)
+VALUES (1, "Hasan"), (2, "Umer");

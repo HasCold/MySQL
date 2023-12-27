@@ -1,0 +1,14 @@
+What is database ?
+
+An organised collection of data. A method to manipulate and access the data.
+
+Database VS DBMS (Database Management System)  
+
+DBMS = tool through which we can manipulate update get and delete the data into the database e.g: MySQL, Oracle etc.
+
+MySQL, Oracle is actually a combiantion of DBMS and database or you can only say that the Database Management System. 
+
+RDMS :- Relational Database Management System stores information in tables means tabular form (like rows and columns).
+
+SQL = Structured Query Language which is used to talk to our databases.
+MySQL = DBMS which uses SQL to talk with database.

@@ -1,0 +1,22 @@
+
+"Reading Data from a TABLE" :-
+By using a SELECT query;
+
+SELECT * FROM students    // 
+
+Print Specific things from the data :- 
+
+SELECT name FROM students;   // prints all the students name;
+SELECT id FROM students;  // prints all the students id;
+
+SELECT name, class FROM students;    // prints multiple elememts from the students table
+
+
+
+------------- QUERY ON CONDITION --------------------------------
+
+SELECT * FROM students WHERE id = 103;
+SELECT name, class FROM students WHERE id = 102;
+SELECT * FROM students WHERE class=9;
+SELECT name FROM students WHERE class = 8;
+SELECT id, name FROM students WHERE class = 8;

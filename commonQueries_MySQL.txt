@@ -1,0 +1,7 @@
+SHOW DATABASES  / show databases;
+
+Clearing queries in the command line interface :- system cls
+
+SHOW DATABASES;
+
+SHOW TABLES;

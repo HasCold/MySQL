@@ -1,0 +1,9 @@
+MODIFYING DATA IN TABLE;
+
+UPDATE students
+SET class = 7
+WHERE name = "Talha";
+
+UPDATE students
+SET name = "Saad Zuabairi"
+WHERE class = 8;

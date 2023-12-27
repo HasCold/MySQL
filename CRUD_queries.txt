@@ -1,0 +1,24 @@
+Listing and Creating a Database
+
+SHOW DATABASES;   The last semicolon is important from which the MySQL understand that the query is complete;
+
+CREATE DATABASE store_db;  When you have to create database from the command line interface.
+
+USE school_db ; When you have to work with the specific database schema;
+
+How to know in which database we are ?
+--->>  select database(); 
+
+Deleting the database :-  DROP DATABASE school_db;
+
+
+Create A Table in database :- 
+Syntax :
+   CREATE TABLE students (
+    id INT,                // Id should be an integer
+    name VARCHAR(100)   // -->> Means you can enter the name upto 100 characters variables ; VARCHAR = Variable Characters 
+);
+
+How to verify or see our table in database through command line :-
+-->> DESC TABLE  // Describe Table
+e.g. :   DESC students;

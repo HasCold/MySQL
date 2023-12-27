@@ -1,0 +1,30 @@
+Create A Table in database :- 
+Syntax :
+   CREATE TABLE students (
+    id INT,                // Id should be an integer
+    name VARCHAR(20),   // -->> Means you can enter the name upto 20 characters variables ; VARCHAR = Variable Characters 
+    class INT
+);
+
+How to verify or see our table in database through command line :-
+-->> DESC TABLE  // Describe Table
+e.g. :   DESC students;
+
+
+Adding Data into Table :- 
+
+INSERT INTO students(id, name, class)
+VALUES (101, "Hasan", 9);
+
+OR 
+
+IF you are giving the name, id, class in the same sequence so you don't have to specify the column name infront of the students table
+
+INSERT INTO students
+VALUES (102, "Umer", 8);   // The query will Ok
+
+OR 
+
+Single Line Statement :- 
+
+INSERT INTO students VALUES (103, "Talha", 8);
