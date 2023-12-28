@@ -1,0 +1,96 @@
+ CREATE TABLE employees(
+ emp_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(20) NOT NULL,
+ desig VARCHAR(30) NOT NULL DEFAULT "Probation",
+ dept VARCHAR(20) NOT NULL
+ );
+
+PRINT :-
+
+  SELECT * FROM employees;
++--------+---------+-----------+----------+
+| emp_id | name    | desig     | dept     |
++--------+---------+-----------+----------+
+|      1 | Hasan   | Probation | Cash     |
+|      2 | Umer    | Probation | Cash     |
+|      3 | Talha   | Manager   | Loan     |
+|      4 | Saad    | Accuntant | Deposit  |
+|      5 | Huzaifa | Cashier   | Accounts |
++--------+---------+-----------+----------+
+
+
+PRINT :- 
+
+ SELECT emp_id, name FROM employees;
++--------+---------+
+| emp_id | name    |
++--------+---------+
+|      1 | Hasan   |
+|      2 | Umer    |
+|      3 | Talha   |
+|      4 | Saad    |
+|      5 | Huzaifa |
++--------+---------+
+
+
+------------------------------------ Exercise 2 ---------------------------------------------
+
+SELECT emp_id, name, desig, dept FROM employees WHERE dept = "Loan";
++--------+-------+---------+------+
+| emp_id | name  | desig   | dept |
++--------+-------+---------+------+
+|      3 | Talha | Manager | Loan |
++--------+-------+---------+------+
+
+
+ SELECT emp_id, name, desig, dept FROM employees WHERE emp_id = 1;
++--------+-------+-----------+------+
+| emp_id | name  | desig     | dept |
++--------+-------+-----------+------+
+|      1 | Hasan | Probation | Cash |
++--------+-------+-----------+------+
+
+
+ SELECT emp_id, name FROM employees WHERE name = "Umer";
++--------+------+
+| emp_id | name |
++--------+------+
+|      2 | Umer |
++--------+------+
+
+
+
+-------------------------- UPDATE QUERY -----------------------------------
+
+UPDATE employees
+SET dept = "IT (Tech)"
+WHERE name = "Hasan";
+
+ SELECT * FROM employees;
++--------+---------+-----------+-----------+
+| emp_id | name    | desig     | dept      |
++--------+---------+-----------+-----------+
+|      1 | Hasan   | Probation | IT (Tech) |
+|      2 | Umer    | Probation | Cash      |
+|      3 | Talha   | Manager   | Loan      |
+|      4 | Saad    | Accuntant | Deposit   |
+|      5 | Huzaifa | Cashier   | Accounts  |
++--------+---------+-----------+-----------+
+
+
+
+-------------------------- DELETE QUERY -----------------------------------
+ DELETE FROM employees
+ WHERE dept = "Loan";
+
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM employees;
++--------+---------+-----------+-----------+
+| emp_id | name    | desig     | dept      |
++--------+---------+-----------+-----------+
+|      1 | Hasan   | Probation | IT (Tech) |
+|      2 | Umer    | Probation | Cash      |
+|      4 | Saad    | Accuntant | Deposit   |
+|      5 | Huzaifa | Cashier   | Accounts  |
++--------+---------+-----------+-----------+

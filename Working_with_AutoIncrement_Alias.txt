@@ -1,0 +1,34 @@
+CREATE TABLE customers(
+acc_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(20) NOT NULL,
+acc_type VARCHAR(50) NOT NULL DEFAULT "Savings"
+);
+
+When you will suppose use AUTO_INCREMENT with acc_id so it should not be necessary to use NOT NULL operator in this particular field.  
+
+How AUTO_INCREMENT will work :- 
+When a new row is inserted into the table without specifying a value for the acc_id column, then MySQL automatically assigns a unique integer to that and move onwards to the preceeding value;
+ 
+ SELECT * FROM customers;
++--------+--------+-----------------+
+| acc_id | name   | acc_type        |
++--------+--------+-----------------+
+|      1 | Hasan  | Savings         |
+|      2 | Umer   | Savings         |
+|   1002 | Saad   | Current Working |
+|   1112 | Talha  | Savings         |
+|   1113 | Huxaif | Savings         |
++--------+--------+-----------------+
+
+------------------------------ ALIAS Keyword ----------------------------------------------------
+
+ SELECT acc_id AS "Account No." FROM customers;
++-------------+
+| Account No. |
++-------------+
+|           1 |
+|           2 |
+|        1002 |
+|        1112 |
+|        1113 |
++-------------+
