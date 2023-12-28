@@ -1,0 +1,79 @@
+SubString Function :- 
+
+SELECT SUBSTRING("Hey Buddy", 1, 4);   // --->>> Perform some operations on the string and 1 and 4 are index for the string means we have to perform some operation on string from 1 to 4;
+
+SELECT SUBSTRING("Hey Buddy", 1, 4);
++------------------------------+
+| SUBSTRING("Hey Buddy", 1, 4) |
++------------------------------+
+| Hey                          |
++------------------------------+
+
+
+ SELECT SUBSTRING("Muhammad Hasan Ali", 10, 15);
++-----------------------------------------+
+| SUBSTRING("Muhammad Hasan Ali", 10, 15) |
++-----------------------------------------+
+| Hasan Ali                               |
++-----------------------------------------+
+
+
+SELECT SUBSTRING("Muhammad Hasan Ali", 10, 5);
++----------------------------------------+
+| SUBSTRING("Muhammad Hasan Ali", 10, 5) |
++----------------------------------------+
+| Hasan                                  |
++----------------------------------------+
+
+
+ SELECT SUBSTRING("Hello World, Muhammad Hasan Ali", -3);
++--------------------------------------------------+
+| SUBSTRING("Hello World, Muhammad Hasan Ali", -3) |
++--------------------------------------------------+
+| Ali                                              |
++--------------------------------------------------+
+
+
+SELECT emp_id, SUBSTRING(name, -3) AS LastAlpha FROM employees;
++--------+-----------+
+| emp_id | LastAlpha |
++--------+-----------+
+|      1 | san       |
+|      2 | mer       |
+|      4 | aad       |
+|      5 | ifa       |
+|      6 | ali       |
++--------+-----------+
+
+
+------------------------------------------ Replace ----------------------------------------
+
+REPLACE(str, from_str, to_str);
+
+
+SELECT REPLACE("Muhammad Hasan Helllo", "Helllo", "Ali");
++---------------------------------------------------+
+| REPLACE("Muhammad Hasan Helllo", "Helllo", "Ali") |
++---------------------------------------------------+
+| Muhammad Hasan Ali                                |
++---------------------------------------------------+
+
+
+SELECT REPLACE("ABCDPQR", "PQR", "XYZ");
++----------------------------------+
+| REPLACE("ABCDPQR", "PQR", "XYZ") |
++----------------------------------+
+| ABCDXYZ                          |
++----------------------------------+
+
+
+SELECT name AS FullName, REPLACE(desig, "Pro", "Cro") AS NewDesigName FROM employees;
++----------------+-------------------+
+| FullName       | NewDesigName      |
++----------------+-------------------+
+| Hasan          | Crobation         |
+| Umer           | Crobation         |
+| Saad           | Accuntant         |
+| Huzaifa        | Cashier           |
+| Ayesha Bangali | Software Engineer |
++----------------+-------------------+

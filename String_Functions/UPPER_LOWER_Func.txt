@@ -1,0 +1,33 @@
+UPPER and LOWER Function
+
+SELECT UPPER("hasan");
++----------------+
+| UPPER("hasan") |
++----------------+
+| HASAN          |
++----------------+
+
+
+
+SELECT UCASE(name) FROM employees;
++----------------+
+| UCASE(name)    |
++----------------+
+| HASAN          |
+| UMER           |
+| SAAD           |
+| HUZAIFA        |
+| AYESHA BANGALI |
++----------------+
+
+
+ SELECT LOWER(desig) AS UDesig FROM employees;
++-------------------+
+| UDesig            |
++-------------------+
+| probation         |
+| probation         |
+| accuntant         |
+| cashier           |
+| software engineer |
++-------------------+

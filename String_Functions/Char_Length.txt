@@ -1,0 +1,41 @@
+Char Length :- 
+
+SELECT CHAR_LENGTH("Hasan ALi");
++--------------------------+
+| CHAR_LENGTH("Hasan ALi") |
++--------------------------+
+|                        9 |
++--------------------------+
+
+
+ SELECT CHAR_LENGTH(dept) FROM employees;
++-------------------+
+| CHAR_LENGTH(dept) |
++-------------------+
+|                 9 |
+|                 4 |
+|                 7 |
+|                 8 |
+|                 9 |
++-------------------+
+
+
+SELECT * FROM employees WHERE CHAR_LENGTH(name) < 6;
++--------+-------+-----------+-----------+
+| emp_id | name  | desig     | dept      |
++--------+-------+-----------+-----------+
+|      1 | Hasan | Probation | IT (Tech) |
+|      2 | Umer  | Probation | Cash      |
+|      4 | Saad  | Accuntant | Deposit   |
++--------+-------+-----------+-----------+
+
+
+
+SELECT * FROM employees WHERE CHAR_LENGTH(name) >= 5;
++--------+----------------+-------------------+-----------+
+| emp_id | name           | desig             | dept      |
++--------+----------------+-------------------+-----------+
+|      1 | Hasan          | Probation         | IT (Tech) |
+|      5 | Huzaifa        | Cashier           | Accounts  |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |
++--------+----------------+-------------------+-----------+

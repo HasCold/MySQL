@@ -1,0 +1,47 @@
+Concat(first_col, second_col);
+concat(first_col, second_col, ...);
+
+SELECT CONCAT("Hello World", "to the Hasan !");
++-----------------------------------------+
+| CONCAT("Hello World", "to the Hasan !") |
++-----------------------------------------+
+| Hello Worldto the Hasan !               |
++-----------------------------------------+
+
+
+
+SELECT emp_id, CONCAT(name," ", dept) AS FullDesignation FROM employees;
++--------+--------------------------+
+| emp_id | FullDesignation          |
++--------+--------------------------+
+|      1 | Hasan IT (Tech)          |
+|      2 | Umer Cash                |
+|      4 | Saad Deposit             |
+|      5 | Huzaifa Accounts         |
+|      6 | Ayesha Bangali IT (Tech) |
++--------+--------------------------+
+
+
+
+SELECT emp_id, CONCAT(name, " ", "Crypto") AS Client_Name FROM employees;
+
+
+---------------------------------- CONCAT-WS --------------------------------------------------
+
+Concatenate With Separator CONCAT-WS
+
+CONCAT_WS(-, firstName, lastName);   // -->> Separate the firstName and lastName with the Separator
+
+SELECT CONCAT_WS("-", "Muhammad", "Hasan", "Ali");   -->>  Muhammad-Hasan-Ali
+SELECT CONCAT_WS("/", "11", "27", "2001");   --->>  11/27/2001
+
+SELECT emp_id, CONCAT_WS(":", name, desig, dept) FROM employees;
++--------+--------------------------------------------+
+| emp_id | CONCAT_WS(":", name, desig, dept)          |
++--------+--------------------------------------------+
+|      1 | Hasan:Probation:IT (Tech)                  |
+|      2 | Umer:Probation:Cash                        |
+|      4 | Saad:Accuntant:Deposit                     |
+|      5 | Huzaifa:Cashier:Accounts                   |
+|      6 | Ayesha Bangali:Software Engineer:IT (Tech) |
++--------+--------------------------------------------+

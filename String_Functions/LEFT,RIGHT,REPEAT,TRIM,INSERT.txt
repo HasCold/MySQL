@@ -1,0 +1,70 @@
+-------------------- INSERT ---------------------------
+
+SELECT INSERT("Hey, Wassup", 6, 1, "Hasan ");   --->> 1 means in the second index is to remove the first string letter after inserting the given name.
+
++---------------------------------------+
+| INSERT("Hey, Wassup", 6, 1, "Hasan ") |
++---------------------------------------+
+| Hey, Hasan assup                      |
++---------------------------------------+
+
+
+SELECT INSERT("Hello, your salary has been deposited to your account", 8, 0, name ) AS Message_Info FROM employees;
++---------------------------------------------------------------------+
+| Message_Info                                                        |
++---------------------------------------------------------------------+
+| Hello, Hasanyour salary has been deposited to your account          |
+| Hello, Umeryour salary has been deposited to your account           |
+| Hello, Saadyour salary has been deposited to your account           |
+| Hello, Huzaifayour salary has been deposited to your account        |
+| Hello, Ayesha Bangaliyour salary has been deposited to your account |
++---------------------------------------------------------------------+
+
+
+ SELECT INSERT("Hello, your salary has been deposited to your account", 7, 0, name) AS Message_Info FROM employees;
++---------------------------------------------------------------------+
+| Message_Info                                                        |
++---------------------------------------------------------------------+
+| Hello,Hasan your salary has been deposited to your account          |
+| Hello,Umer your salary has been deposited to your account           |
+| Hello,Saad your salary has been deposited to your account           |
+| Hello,Huzaifa your salary has been deposited to your account        |
+| Hello,Ayesha Bangali your salary has been deposited to your account |
++---------------------------------------------------------------------+
+
+
+------------------------- LEFT & RIGHT -------------------------------
+
+SELECT LEFT("Hey, Buddy Hasan", 3);   --->> Gives the string from the left side.
++-----------------------------+
+| LEFT("Hey, Buddy Hasan", 3) |
++-----------------------------+
+| Hey                         |
++-----------------------------+
+
+ SELECT RIGHT("Hey, Buddy HasanAli", 3);  --->> Gives the string from the right side.
++---------------------------------+
+| RIGHT("Hey, Buddy HasanAli", 3) |
++---------------------------------+
+| Ali                             |
++---------------------------------+
+
+
+------------------------- REPEAT -------------------------------
+
+SELECT REPEAT("Muhammd Hasan Ali", 5);
++---------------------------------------------------------------------------------------+
+| REPEAT("Muhammd Hasan Ali", 5)                                                        |
++---------------------------------------------------------------------------------------+
+| Muhammd Hasan AliMuhammd Hasan AliMuhammd Hasan AliMuhammd Hasan AliMuhammd Hasan Ali |
++---------------------------------------------------------------------------------------+
+
+
+------------------------------ TRIM ------------------------------
+
+ SELECT TRIM("   Muhammad Hasan ALi  ");
++---------------------------------+
+| TRIM("   Muhammad Hasan ALi  ") |
++---------------------------------+
+| Muhammad Hasan ALi              |
++---------------------------------+

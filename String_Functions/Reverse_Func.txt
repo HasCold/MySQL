@@ -1,0 +1,21 @@
+Reverse Function
+
+ SELECT REVERSE("Muhammd Hasan Ali");
++------------------------------+
+| REVERSE("Muhammd Hasan Ali") |
++------------------------------+
+| ilA nasaH dmmahuM            |
++------------------------------+
+
+
+
+SELECT emp_id AS EMPID, REVERSE(name) AS RName FROM employees;
++-------+----------------+
+| EMPID | RName          |
++-------+----------------+
+|     1 | nasaH          |
+|     2 | remU           |
+|     4 | daaS           |
+|     5 | afiazuH        |
+|     6 | ilagnaB ahseyA |
++-------+----------------+

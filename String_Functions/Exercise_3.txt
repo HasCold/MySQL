@@ -1,0 +1,50 @@
+SELECT CONCAT_WS(":", emp_id, name, dept, desig) AS TASK_1 FROM employees;
+
++----------------------------------------------+
+| TASK_1                                       |
++----------------------------------------------+
+| 1:Hasan:IT (Tech):Probation                  |
+| 2:Umer:Cash:Probation                        |
+| 4:Saad:Deposit:Accuntant                     |
+| 5:Huzaifa:Accounts:Cashier                   |
+| 6:Ayesha Bangali:IT (Tech):Software Engineer |
++----------------------------------------------+
+
+
+ SELECT CONCAT_WS(":", emp_id, CONCAT(name, " Ali"), dept, desig) AS Employee_Info FROM employees WHERE name = "Hasan";
+ +---------------------------------+
+| Employee_Info                   |
++---------------------------------+
+| 1:Hasan Ali:IT (Tech):Probation |
++---------------------------------+
+
+
+SELECT CONCAT_WS(":", emp_id, CONCAT(name, " Ali"), LCASE(desig), UPPER(dept)) AS Employee_Info FROM employees WHERE name = "Hasan";
++---------------------------------+
+| Employee_Info                   |
++---------------------------------+
+| 1:Hasan Ali:probation:IT (TECH) |
++---------------------------------+
+
+
+SELECT CONCAT_WS(":", UCASE(SUBSTRING(desig, 1, 1)), emp_id, LOWER(SUBSTRING(dept, 1, 1))) AS Employe_Info FROM employees WHERE name = "Saad" OR name = "Hasan";
++--------------+
+| Employe_Info |
++--------------+
+| P:1:i        |
+| A:4:d        |
++--------------+
+
+
+
+ SELECT CONCAT_WS(":", UCASE(LEFT(desig, 1)), emp_id, LOWER(LEFT(dept, 1)), name,
+-> CONCAT("Your name character length contains number ", CHAR_LENGTH(name))) AS Employee_Info
+-> FROM employees
+-> WHERE name = "Saad" OR name = "Huzaifa";
+
++------------------------------------------------------------+
+| Employee_Info                                              |
++------------------------------------------------------------+
+| A:4:d:Saad:Your name character length contains number 4    |
+| C:5:a:Huzaifa:Your name character length contains number 7 |
++------------------------------------------------------------+
