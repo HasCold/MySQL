@@ -1,0 +1,42 @@
+MIN and MAX Function :- 
+
+
+SELECT MAX(salary) FROM employees;
++-------------+
+| MAX(salary) |
++-------------+
+|       75000 |
++-------------+
+
+
+SELECT MIN(salary) FROM employees;
++-------------+
+| MIN(salary) |
++-------------+
+|       25000 |
++-------------+
+
+
+
+-------------------------------- SUB - QUERIES ------------------------------
+A subquery is a query within another SQL statement. It can be used to perform complex operations on the result set returned by an inner query.
+
+SELECT name, emp_id, salary FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);   -->> In this query first, the thing in the brackets which we called as Sub-Query will execute and then after it returned the whole name, emp_id and salary. 
++-------+--------+--------+
+| name  | emp_id | salary |
++-------+--------+--------+
+| Hasan |      1 |  75000 |
++-------+--------+--------+
+
+
+
+SELECT emp_id, name, salary, desig, dept FROM employees
+WHERE salary = (SELECT MIN(salary) FROM employees);
++--------+----------------+--------+-------------------+-----------+
+| emp_id | name           | salary | desig             | dept      |
++--------+----------------+--------+-------------------+-----------+
+|      4 | Saad           |  25000 | Accuntant         | Deposit   |
+|      6 | Ayesha Bangali |  25000 | Software Engineer | IT (Tech) |
+|      8 | Hafsa          |  25000 | Cashier           | Accounts  |
++--------+----------------+--------+-------------------+-----------+

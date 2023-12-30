@@ -1,0 +1,75 @@
+Sum Function and Average Functions 
+
+
+SELECT SUM(salary) FROM employees;
++-------------+
+| SUM(salary) |
++-------------+
+|      286000 |
++-------------+
+
+
+SELECT AVG(salary) FROM employees;  -->> Average Salary for each employee
++-------------+
+| AVG(salary) |
++-------------+
+|  40857.1429 |
++-------------+
+
+
+Condition :- Group by Department and returned the sum of salary;
+
+SELECT * FROM employees;
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      1 | Hasan          | Probation         | IT (Tech) |  75000 |
+|      2 | Umer           | Probation         | Cash      |  52000 |
+|      4 | Saad           | Accuntant         | Deposit   |  25000 |
+|      5 | Huzaifa        | Cashier           | Accounts  |  32000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
+|      7 | Umer           | Accounts Officer  | Accounts  |  52000 |
+|      8 | Hafsa          | Cashier           | Accounts  |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+SELECT dept, SUM(salary) FROM employees GROUP BY dept;
++-----------+-------------+
+| dept      | SUM(salary) |
++-----------+-------------+
+| IT (Tech) |      100000 |
+| Cash      |       52000 |
+| Deposit   |       25000 |
+| Accounts  |      109000 |
++-----------+-------------+
+
+How does the GROUP BY operator work ??
+- It is used to group rows that have the same values in specified columns into aggregated data.
+- Then the result in which we have the aggregated data which contains the same value of column rows will set for the further execution in the Function like COUNT(), MAX(), MIN(), SUM(), AVG() etc.
+
+
+Another Example :-
+SELECT desig, AVG(salary) FROM employees GROUP BY desig; -->> On the basis of grouping on the designation column we will returned the data
++-------------------+-------------+
+| desig             | AVG(salary) |
++-------------------+-------------+
+| Probation         |  63500.0000 |
+| Accuntant         |  25000.0000 |
+| Cashier           |  28500.0000 |
+| Software Engineer |  25000.0000 |
+| Accounts Officer  |  52000.0000 |
++-------------------+-------------+
+
+
+
+SELECT dept, COUNT(emp_id), SUM(salary) FROM employees GROUP BY dept;
++-----------+---------------+-------------+
+| dept      | COUNT(emp_id) | SUM(salary) |
++-----------+---------------+-------------+
+| IT (Tech) |             2 |      100000 |
+| Cash      |             1 |       52000 |
+| Deposit   |             1 |       25000 |
+| Accounts  |             3 |      109000 |
++-----------+---------------+-------------+
+
+Explanation :- On the basis of grouping the data of department column, then this data will go further how much employees does it have so for this COUNT() is executed and also give us the total sum of salary for each specific department on the basis if grouping the department. 

@@ -1,0 +1,128 @@
+Like Keyword :- 
+
+It means to check whether this type of data is present into my database.
+
+SELECT * FROM employees
+WHERE desig LIKE "%cashier%";
++--------+---------+---------+----------+
+| emp_id | name    | desig   | dept     |
++--------+---------+---------+----------+
+|      5 | Huzaifa | Cashier | Accounts |
++--------+---------+---------+----------+
+
+
+Here it means give us the name on the basis of four character length in the name column so we simply use four underscore ____
+
+SELECT * FROM employees
+WHERE name LIKE "____";
++--------+------+------------------+----------+
+| emp_id | name | desig            | dept     |
++--------+------+------------------+----------+
+|      2 | Umer | Probation        | Cash     |
+|      4 | Saad | Accuntant        | Deposit  |
+|      7 | Umer | Accounts Officer | Accounts |
++--------+------+------------------+----------+
+
+                       OR 
+
+SELECT name FROM employees
+WHERE CHAR_LENGTH(name) < 5;
++------+
+| name |
++------+
+| Umer |
+| Saad |
+| Umer |
++------+
+
+
+You can also specify the first or last letter of name given required in the LIKE Keyword 
+
+SELECT * FROM employees
+WHERE name LIKE "U___";
++--------+------+------------------+----------+
+| emp_id | name | desig            | dept     |
++--------+------+------------------+----------+
+|      2 | Umer | Probation        | Cash     |
+|      7 | Umer | Accounts Officer | Accounts |
++--------+------+------------------+----------+
+
+
+SELECT * FROM employees
+WHERE name LIKE "____n";
++--------+-------+-----------+-----------+
+| emp_id | name  | desig     | dept      |
++--------+-------+-----------+-----------+
+|      1 | Hasan | Probation | IT (Tech) |
++--------+-------+-----------+-----------+
+
+
+
+SELECT * FROM employees
+WHERE name LIKE "H%";    --- >>> Method to know the names starting from H letter
++--------+---------+-----------+-----------+--------+
+| emp_id | name    | desig     | dept      | salary |
++--------+---------+-----------+-----------+--------+
+|      1 | Hasan   | Probation | IT (Tech) |  75000 |
+|      5 | Huzaifa | Cashier   | Accounts  |  32000 |
++--------+---------+-----------+-----------+--------+
+
+
+
+SELECT * FROM employees
+WHERE name LIKE "%H%";  --->> Method to know the "h" alphabet present in the names of data 
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      1 | Hasan          | Probation         | IT (Tech) |  75000 |
+|      5 | Huzaifa        | Cashier           | Accounts  |  32000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+
+SELECT * FROM employees
+WHERE name LIKE "s%";
++--------+------+-----------+---------+--------+
+| emp_id | name | desig     | dept    | salary |
++--------+------+-----------+---------+--------+
+|      4 | Saad | Accuntant | Deposit |  25000 |
++--------+------+-----------+---------+--------+
+
+
+----------------------------------------- LIMIT ------------------------------------------------
+
+SELECT * FROM employees LIMIT 3;
++--------+-------+-----------+-----------+--------+
+| emp_id | name  | desig     | dept      | salary |
++--------+-------+-----------+-----------+--------+
+|      1 | Hasan | Probation | IT (Tech) |  75000 |
+|      2 | Umer  | Probation | Cash      |  52000 |
+|      4 | Saad  | Accuntant | Deposit   |  25000 |
++--------+-------+-----------+-----------+--------+
+
+
+SELECT emp_id, name, desig FROM employees
+WHERE CHAR_LENGTH(name) > 4
+ORDER BY salary DESC
+LIMIT 3;
++--------+----------------+-------------------+
+| emp_id | name           | desig             |
++--------+----------------+-------------------+
+|      1 | Hasan          | Probation         |
+|      5 | Huzaifa        | Cashier           |
+|      6 | Ayesha Bangali | Software Engineer |
++--------+----------------+-------------------+
+
+
+
+Show the data by specifying the range of data in LIMIT property 
+
+SELECT * FROM employees LIMIT 2, 3  -->> Means start the index from 2 and show the data after the 2 index to more 3 data specified.
++--------+----------------+
+| emp_id | name           |
++--------+----------------+
+|      4 | Saad           |
+|      5 | Huzaifa        |
+|      6 | Ayesha Bangali |
++--------+----------------+

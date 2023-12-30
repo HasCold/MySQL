@@ -1,0 +1,37 @@
+If we want the particular column data with its distinct means no duplicate values then we must use the DISTINCT 
+
+
+Example :- 
+
+SELECT dept FROM employees;
++-----------+
+| dept      |
++-----------+
+| IT (Tech) |
+| Cash      |
+| Deposit   |
+| Accounts  |
+| IT (Tech) |
++-----------+
+
+
+SELECT DISTINCT dept FROM employees;
++-----------+
+| dept      |
++-----------+
+| IT (Tech) |
+| Cash      |
+| Deposit   |
+| Accounts  |
++-----------+
+
+ SELECT DISTINCT name FROM employees;
++----------------+
+| name           |
++----------------+
+| Hasan          |
+| Umer           |
+| Saad           |
+| Huzaifa        |
+| Ayesha Bangali |
++----------------+

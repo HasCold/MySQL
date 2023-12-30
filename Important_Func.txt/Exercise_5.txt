@@ -1,0 +1,74 @@
+TASK 1 :- 
+
+SELECT COUNT(emp_id) AS TOTAL_EMPLOYEES FROM employees;
++-----------------+
+| TOTAL_EMPLOYEES |
++-----------------+
+|               7 |
++-----------------+
+
+
+
+TASK 2 :- 
+
+SELECT dept, COUNT(emp_id) AS Total_Employees FROM employees GROUP BY dept;
++-----------+-----------------+
+| dept      | Total_Employees |
++-----------+-----------------+
+| IT (Tech) |               2 |
+| Cash      |               1 |
+| Deposit   |               1 |
+| Accounts  |               3 |
++-----------+-----------------+
+
+
+
+TASK 3 :- 
+
+SELECT * FROM employees
+WHERE salary = (SELECT MIN(salary) FROM employees);
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      4 | Saad           | Accuntant         | Deposit   |  25000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
+|      8 | Hafsa          | Cashier           | Accounts  |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+
+TASK 4 :-
+
+SELECT * FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
++--------+-------+-----------+-----------+--------+
+| emp_id | name  | desig     | dept      | salary |
++--------+-------+-----------+-----------+--------+
+|      1 | Hasan | Probation | IT (Tech) |  75000 |
++--------+-------+-----------+-----------+--------+
+
+
+
+TASK 5 :- 
+
+SELECT dept, SUM(salary), COUNT(emp_id) FROM employees
+WHERE dept = "Accounts";
++----------+-------------+---------------+
+| dept     | SUM(salary) | COUNT(emp_id) |
++----------+-------------+---------------+
+| Accounts |      109000 |             3 |
++----------+-------------+---------------+
+
+
+
+TASK 6 :-
+
+SELECT dept, COUNT(emp_id), AVG(salary) FROM employees GROUP BY dept;
++-----------+---------------+-------------+
+| dept      | COUNT(emp_id) | AVG(salary) |
++-----------+---------------+-------------+
+| IT (Tech) |             2 |  50000.0000 |
+| Cash      |             1 |  52000.0000 |
+| Deposit   |             1 |  25000.0000 |
+| Accounts  |             3 |  36333.3333 |
++-----------+---------------+-------------+

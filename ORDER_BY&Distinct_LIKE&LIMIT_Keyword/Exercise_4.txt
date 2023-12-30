@@ -1,0 +1,67 @@
+TASK 1 :- 
+
+ SELECT DISTINCT dept FROM employees;
++-----------+
+| dept      |
++-----------+
+| IT (Tech) |
+| Cash      |
+| Deposit   |
+| Accounts  |
++-----------+
+
+
+
+TASK 2 :-
+
+SELECT * FROM employees
+ORDER BY salary DESC;
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      1 | Hasan          | Probation         | IT (Tech) |  75000 |
+|      2 | Umer           | Probation         | Cash      |  52000 |
+|      7 | Umer           | Accounts Officer  | Accounts  |  52000 |
+|      5 | Huzaifa        | Cashier           | Accounts  |  32000 |
+|      4 | Saad           | Accuntant         | Deposit   |  25000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+TASK 3 :-
+
+SELECT * FROM employees LIMIT 3;
++--------+-------+-----------+-----------+--------+
+| emp_id | name  | desig     | dept      | salary |
++--------+-------+-----------+-----------+--------+
+|      1 | Hasan | Probation | IT (Tech) |  75000 |
+|      2 | Umer  | Probation | Cash      |  52000 |
+|      4 | Saad  | Accuntant | Deposit   |  25000 |
++--------+-------+-----------+-----------+--------+
+
+
+
+TASK 4 :- 
+
+SELECT * FROM employees
+WHERE name LIKE "H%";
++--------+---------+-----------+-----------+--------+
+| emp_id | name    | desig     | dept      | salary |
++--------+---------+-----------+-----------+--------+
+|      1 | Hasan   | Probation | IT (Tech) |  75000 |
+|      5 | Huzaifa | Cashier   | Accounts  |  32000 |
++--------+---------+-----------+-----------+--------+
+
+
+
+TASK 5 :- 
+
+SELECT * FROM employees
+WHERE name LIKE "____";
++--------+------+------------------+----------+--------+
+| emp_id | name | desig            | dept     | salary |
++--------+------+------------------+----------+--------+
+|      2 | Umer | Probation        | Cash     |  52000 |
+|      4 | Saad | Accuntant        | Deposit  |  25000 |
+|      7 | Umer | Accounts Officer | Accounts |  52000 |
++--------+------+------------------+----------+--------+

@@ -1,0 +1,25 @@
+Count Function helps you to identify the total no. of data/records in the tables;
+
+
+SELECT COUNT(*) FROM employees;
++----------+
+| COUNT(*) |
++----------+
+|        6 |
++----------+
+
+
+SELECT COUNT(DISTINCT dept) FROM employees;
++----------------------+
+| COUNT(DISTINCT dept) |
++----------------------+
+|                    4 |
++----------------------+
+
+
+SELECT COUNT(emp_id) FROM employees WHERE desig = "Probation";
++--------------+
+| COUNT(desig) |
++--------------+
+|            2 |
++--------------+

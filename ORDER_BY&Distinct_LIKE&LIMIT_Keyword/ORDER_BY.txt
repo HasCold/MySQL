@@ -1,0 +1,45 @@
+ORDER BY Keyword
+
+ORDER BY is basically use for the sorting purposes.
+
+SELECT emp_id, name FROM employees
+ORDER BY name;
++--------+----------------+
+| emp_id | name           |
++--------+----------------+
+|      6 | Ayesha Bangali |
+|      1 | Hasan          |
+|      5 | Huzaifa        |
+|      4 | Saad           |
+|      2 | Umer           |
+|      7 | Umer           |
++--------+----------------+
+
+
+DESCENDING ORDER :-
+
+SELECT emp_id, name FROM employees
+ORDER BY name DESC;
++--------+----------------+
+| emp_id | name           |
++--------+----------------+
+|      2 | Umer           |
+|      7 | Umer           |
+|      4 | Saad           |
+|      5 | Huzaifa        |
+|      1 | Hasan          |
+|      6 | Ayesha Bangali |
++--------+----------------+
+
+
+SELECT DISTINCT name FROM employees
+ORDER BY name;
++----------------+
+| name           |
++----------------+
+| Ayesha Bangali |
+| Hasan          |
+| Huzaifa        |
+| Saad           |
+| Umer           |
++----------------+
