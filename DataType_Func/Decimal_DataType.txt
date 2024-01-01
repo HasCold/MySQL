@@ -1,0 +1,32 @@
+Decimal Data Type
+
+DECIMAL(5,2) -->> 5 is the total digit and 2 digit after decimal point
+
+CREATE TABLE num(
+price DECIMAL(5,2)
+);
+
+
+INSERT INTO num
+VALUES (178.73), (22.65);
+
+SELECT * FROM num;
++--------+
+| price  |
++--------+
+| 178.73 |
+|  22.65 |
++--------+
+
+
+INSERT INTO num(price)
+VALUES (15.878);    -->> Because we described when creating the table num that our decimal point is gonna be 2 places; 
+
+SELECT * FROM num;
++--------+
+| price  |
++--------+
+| 178.73 |
+|  22.65 |
+|  15.88 |
++--------+
