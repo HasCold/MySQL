@@ -1,0 +1,23 @@
+DATE , TIME and DATETIME Data Type
+
+DATE := yyyy-mm-dd format
+
+TIME := HH:MM:SS format
+
+DATETIME := `yyyy-mm-dd HH:MM:SS` format
+
+
+CREATE TABLE person(
+ jd DATE,
+ jt TIME,
+ jdt DATETIME);
+
+
+ DESC person;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| jd    | date     | YES  |     | NULL    |       |
+| jt    | time     | YES  |     | NULL    |       |
+| jdt   | datetime | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+

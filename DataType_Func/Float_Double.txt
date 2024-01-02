@@ -1,0 +1,20 @@
+Float :- upto ~7 digits, takes 4 bytes of memory.
+Double :- upto ~15 digits, takes 8 bytes of memory.
+
+
+CREATE TABLE num(
+ f FLOAT,
+ d DOUBLE);
+
+INSERT INTO num
+VALUES (123.123456789, 123.123456789);
+
+
+SELECT * FROM num;
++---------+---------------+
+| f       | d             |
++---------+---------------+
+| 123.456 |       123.456 |
+|    NULL |       123.456 |
+| 123.123 | 123.123456789 |
++---------+---------------+
