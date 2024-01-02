@@ -1,0 +1,35 @@
+Date_Format();
+
+// You can also learn more about from the documentation that how can you utilize the DATE_FORMAT(); 
+
+DATE_FORMAT(now(), '%D %a at %T');
+Result:- 21st Tue at 21:20:28
+
+DATE_FORMAT(now(), '%m/%d/%y');
+Result:- 04/16/23
+
+
+ SELECT DATE_FORMAT(now(), "%D %a at %T");
++-----------------------------------+
+| DATE_FORMAT(now(), "%D %a at %T") |
++-----------------------------------+
+| 3rd Wed at 00:11:26               |
++-----------------------------------+
+
+
+SELECT DATE_FORMAT(now(), '%m/%d/%y');
++--------------------------------+
+| DATE_FORMAT(now(), '%m/%d/%y') |
++--------------------------------+
+| 01/03/24                       |
++--------------------------------+
+
+
+SELECT jdt, DATE_FORMAT(jdt, '%D %a At %T') FROM person;
++---------------------+---------------------------------+
+| jdt                 | DATE_FORMAT(jdt, '%D %a At %T') |
++---------------------+---------------------------------+
+| 2023-11-27 15:24:34 | 27th Mon At 15:24:34            |
+| 2023-11-27 15:24:34 | 27th Mon At 15:24:34            |
+| 2024-01-02 18:49:29 | 2nd Tue At 18:49:29             |
++---------------------+---------------------------------+

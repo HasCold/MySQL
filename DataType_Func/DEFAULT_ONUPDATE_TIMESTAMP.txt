@@ -1,0 +1,20 @@
+DEFAULT and ON UPDATE TIMESTAMP
+
+
+CREATE TABLE blogs(
+blog VARCHAR(150),
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+UPDATE blogs
+SET blog = "This is the blog from Hasan";
+
+
+SELECT * FROM blogs;
++-----------------------------+---------------------+---------------------+
+| blog                        | createdAt           | updatedAt           |
++-----------------------------+---------------------+---------------------+
+| This is the blog from Hasan | 2024-01-03 01:20:55 | 2024-01-03 01:28:50 |
++-----------------------------+---------------------+---------------------+

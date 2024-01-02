@@ -1,0 +1,72 @@
+Date Time Function
+
+DAYNAME, DAYOFMONTH, DAYOFWEEK, MONTHNAME(), YEAR(), HOUR();
+
+
+DATE := yyyy-mm-dd format
+
+TIME := HH:MM:SS format
+
+DATETIME := `yyyy-mm-dd HH:MM:SS` format
+
+
+SELECT DAYNAME('2007-02-11');
++-----------------------+
+| DAYNAME('2007-02-11') |
++-----------------------+
+| Sunday                |
++-----------------------+
+
+
+SELECT DAYOFWEEK("2001-11-27");
++-------------------------+
+| DAYOFWEEK("2001-11-27") |
++-------------------------+
+|                       3 |
++-------------------------+
+
+
+SELECT MONTHNAME("2024-01-02");
++-------------------------+
+| MONTHNAME("2024-01-02") |
++-------------------------+
+| January                 |
++-------------------------+
+
+
+ SELECT MONTHNAME(CURTIME());
++----------------------+
+| MONTHNAME(CURTIME()) |
++----------------------+
+| January              |
++----------------------+
+
+
+ SELECT jd, jt, DAYNAME(jt), DAYOFMONTH(jd) AS Joining_Date, DAYOFWEEK(jd) AS Joining_Week, MONTHNAME(jd) AS Joining_MonthName, YEAR(jd) AS Joining_Year FROM person;
++------------+----------+-------------+--------------+--------------+-------------------+--------------+
+| jd         | jt       | DAYNAME(jt) | Joining_Date | Joining_Week | Joining_MonthName | Joining_Year |
++------------+----------+-------------+--------------+--------------+-------------------+--------------+
+| 2023-11-27 | 15:24:34 | Wednesday   |           27 |            2 | November          |         2023 |
+| 2023-11-27 | 15:24:34 | Wednesday   |           27 |            2 | November          |         2023 |
+| 2024-01-02 | 18:49:29 | Wednesday   |            2 |            3 | January           |         2024 |
++------------+----------+-------------+--------------+--------------+-------------------+--------------+
+
+
+SELECT jt, HOUR(jt) FROM person;
++----------+----------+
+| jt       | HOUR(jt) |
++----------+----------+
+| 15:24:34 |       15 |
+| 15:24:34 |       15 |
+| 18:49:29 |       18 |
++----------+----------+
+
+
+SELECT jt, MINUTE(jt) FROM person;
++----------+------------+
+| jt       | MINUTE(jt) |
++----------+------------+
+| 15:24:34 |         24 |
+| 15:24:34 |         24 |
+| 18:49:29 |         49 |
++----------+------------+

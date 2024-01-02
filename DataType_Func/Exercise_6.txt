@@ -1,0 +1,62 @@
+TASK 1 :-
+
+SELECT CURTIME();
++-----------+
+| CURTIME() |
++-----------+
+| 01:31:56  |
++-----------+
+
+
+TASK 2 :- 
+
+SELECT CURDATE();
++------------+
+| CURDATE()  |
++------------+
+| 2024-01-03 |
++------------+
+
+
+TASK 3 :-
+
+ SELECT DAYNAME(CURDATE()) AS DAY, MONTHNAME(CURDATE()) AS MONTH, DAYOFMONTH(NOW()) AS DAY_NO, DAYOFWEEK(CURDATE()) AS WEEK, YEAR(NOW()) AS YEAR;
++-----------+---------+--------+------+------+
+| DAY       | MONTH   | DAY_NO | WEEK | YEAR |
++-----------+---------+--------+------+------+
+| Wednesday | January |      3 |    4 | 2024 |
++-----------+---------+--------+------+------+
+
+
+TASK 4 :-
+
+Which datatype can be used to store 123.456?
+A-->> Decimal, Float and Double are the data types which is used to store these kind of 123.456 values; 
+
+
+TASK 5 :- 
+
+ SELECT DATE_FORMAT(NOW(), '%M %D %a At %T %Y');
++-----------------------------------------+
+| DATE_FORMAT(NOW(), '%M %D %a At %T %Y') |
++-----------------------------------------+
+| January 3rd Wed At 01:52:26 2024        |
++-----------------------------------------+
+
+TASK 6 :- 
+
+SELECT DATE_FORMAT(NOW(), '%d:%m:%y');
++--------------------------------+
+| DATE_FORMAT(NOW(), '%d:%m:%y') |
++--------------------------------+
+| 03:01:24                       |
++--------------------------------+
+
+OR
+
+ SELECT DATE_FORMAT(NOW(), "%d:%m:%Y");
++--------------------------------+
+| DATE_FORMAT(NOW(), "%d:%m:%Y") |
++--------------------------------+
+| 03:01:2024                     |
++--------------------------------+
