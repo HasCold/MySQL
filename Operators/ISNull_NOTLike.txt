@@ -1,0 +1,57 @@
+IS NULL , NOT LIKE
+
+
+SELECT * FROM num
+WHERE f IS NULL;
++------+---------+
+| f    | d       |
++------+---------+
+| NULL | 123.456 |
++------+---------+
+
+
+SELECT * FROM employees
+WHERE name LIKE "H____";
++--------+-------+-----------+-----------+--------+
+| emp_id | name  | desig     | dept      | salary |
++--------+-------+-----------+-----------+--------+
+|      1 | Hasan | Probation | IT (Tech) |  75000 |
+|      8 | Hafsa | Cashier   | Accounts  |  25000 |
++--------+-------+-----------+-----------+--------+
+
+
+SELECT * FROM employees
+WHERE name LIKE "%H%";
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      1 | Hasan          | Probation         | IT (Tech) |  75000 |
+|      5 | Huzaifa        | Cashier           | Accounts  |  32000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
+|      8 | Hafsa          | Cashier           | Accounts  |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+SELECT * FROM employees
+WHERE name LIKE "H%";
++--------+---------+-----------+-----------+--------+
+| emp_id | name    | desig     | dept      | salary |
++--------+---------+-----------+-----------+--------+
+|      1 | Hasan   | Probation | IT (Tech) |  75000 |
+|      5 | Huzaifa | Cashier   | Accounts  |  32000 |
+|      8 | Hafsa   | Cashier   | Accounts  |  25000 |
++--------+---------+-----------+-----------+--------+
+
+
+------------------------ NOT LIKE -----------------------------
+
+SELECT * FROM employees
+WHERE name NOT LIKE "H%";
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      2 | Umer           | Probation         | Cash      |  52000 |
+|      4 | Saad           | Accuntant         | Deposit   |  25000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
+|      7 | Umer           | Accounts Officer  | Accounts  |  52000 |
++--------+----------------+-------------------+-----------+--------+

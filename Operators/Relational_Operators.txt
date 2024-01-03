@@ -1,0 +1,43 @@
+Operators :-
+
+Less than  <
+Greater than > 
+Less than or equal to  <= 
+Greater than or equal to   >=
+Equal to  = 
+Not Equal to  !=
+
+
+SELECT * FROM employees
+WHERE salary < 52000;
++--------+----------------+-------------------+-----------+--------+
+| emp_id | name           | desig             | dept      | salary |
++--------+----------------+-------------------+-----------+--------+
+|      4 | Saad           | Accuntant         | Deposit   |  25000 |
+|      5 | Huzaifa        | Cashier           | Accounts  |  32000 |
+|      6 | Ayesha Bangali | Software Engineer | IT (Tech) |  25000 |
+|      8 | Hafsa          | Cashier           | Accounts  |  25000 |
++--------+----------------+-------------------+-----------+--------+
+
+
+SELECT * FROM employees
+WHERE salary >= 50000;
++--------+-------+------------------+-----------+--------+
+| emp_id | name  | desig            | dept      | salary |
++--------+-------+------------------+-----------+--------+
+|      1 | Hasan | Probation        | IT (Tech) |  75000 |
+|      2 | Umer  | Probation        | Cash      |  52000 |
+|      7 | Umer  | Accounts Officer | Accounts  |  52000 |
++--------+-------+------------------+-----------+--------+
+
+
+SELECT * FROM employees
+WHERE salary != 25000;
++--------+---------+------------------+-----------+--------+
+| emp_id | name    | desig            | dept      | salary |
++--------+---------+------------------+-----------+--------+
+|      1 | Hasan   | Probation        | IT (Tech) |  75000 |
+|      2 | Umer    | Probation        | Cash      |  52000 |
+|      5 | Huzaifa | Cashier          | Accounts  |  32000 |
+|      7 | Umer    | Accounts Officer | Accounts  |  52000 |
++--------+---------+------------------+-----------+--------+

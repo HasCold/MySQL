@@ -1,0 +1,61 @@
+CASE Statement condition
+
+SELECT name, salary,
+    -> CASE WHEN salary >= 50000 THEN "Higher Salary"
+    -> ELSE "Low Salary"
+    -> END
+    -> AS "Salary Category"
+    -> FROM employees;
++----------------+--------+-----------------+
+| name           | salary | Salary Category |
++----------------+--------+-----------------+
+| Hasan          |  75000 | Higher Salary   |
+| Umer           |  52000 | Higher Salary   |
+| Saad           |  25000 | Low Salary      |
+| Huzaifa        |  32000 | Low Salary      |
+| Ayesha Bangali |  25000 | Low Salary      |
+| Umer           |  52000 | Higher Salary   |
+| Hafsa          |  25000 | Low Salary      |
++----------------+--------+-----------------+
+
+
+
+ SELECT name, salary,
+    -> CASE WHEN salary >= 60000 THEN "Higher Salary"
+    -> WHEN salary >= 50000 THEN "Median Salary"
+    -> ELSE "Low Salary"
+    -> END
+    -> AS "Salary Category"
+    -> FROM employees;
++----------------+--------+-----------------+
+| name           | salary | Salary Category |
++----------------+--------+-----------------+
+| Hasan          |  75000 | Higher Salary   |
+| Umer           |  52000 | Median Salary   |
+| Saad           |  25000 | Low Salary      |
+| Huzaifa        |  32000 | Low Salary      |
+| Ayesha Bangali |  25000 | Low Salary      |
+| Umer           |  52000 | Median Salary   |
+| Hafsa          |  25000 | Low Salary      |
++----------------+--------+-----------------+
+
+
+ SELECT name, dept, salary,
+    -> CASE WHEN salary >= 60000 THEN "Higher Salary"
+    -> WHEN salary >= 45000
+    -> AND salary < 59000 THEN "Median Salary"
+    -> ELSE "Low Salary"
+    -> END
+    -> AS "Salary Category"
+    -> FROM employees;
++----------------+-----------+--------+-----------------+
+| name           | dept      | salary | Salary Category |
++----------------+-----------+--------+-----------------+
+| Hasan          | IT (Tech) |  75000 | Higher Salary   |
+| Umer           | Cash      |  52000 | Median Salary   |
+| Saad           | Deposit   |  25000 | Low Salary      |
+| Huzaifa        | Accounts  |  32000 | Low Salary      |
+| Ayesha Bangali | IT (Tech) |  25000 | Low Salary      |
+| Umer           | Accounts  |  52000 | Median Salary   |
+| Hafsa          | Accounts  |  25000 | Low Salary      |
++----------------+-----------+--------+-----------------+

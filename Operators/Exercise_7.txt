@@ -1,0 +1,86 @@
+
+TASK 1 :-
+
+SELECT * FROM employees
+WHERE salary BETWEEN 30000 AND 60000;
++--------+---------+------------------+----------+--------+
+| emp_id | name    | desig            | dept     | salary |
++--------+---------+------------------+----------+--------+
+|      2 | Umer    | Probation        | Cash     |  52000 |
+|      5 | Huzaifa | Cashier          | Accounts |  32000 |
+|      7 | Umer    | Accounts Officer | Accounts |  52000 |
++--------+---------+------------------+----------+--------+
+
+
+TASK 2 :-
+
+SELECT * FROM employees
+WHERE name LIKE "U%" OR name LIKE "S%";
++--------+------+------------------+----------+--------+
+| emp_id | name | desig            | dept     | salary |
++--------+------+------------------+----------+--------+
+|      2 | Umer | Probation        | Cash     |  52000 |
+|      4 | Saad | Accuntant        | Deposit  |  25000 |
+|      7 | Umer | Accounts Officer | Accounts |  52000 |
++--------+------+------------------+----------+--------+
+
+
+TASK 3 :- 
+
+SELECT * FROM employees
+WHERE salary = 52000 AND dept = "Cash";
++--------+------+-----------+------+--------+
+| emp_id | name | desig     | dept | salary |
++--------+------+-----------+------+--------+
+|      2 | Umer | Probation | Cash |  52000 |
++--------+------+-----------+------+--------+
+
+
+TASK 4 :-
+
+SELECT * FROM employees
+WHERE desig IN ("Accountant", "Cashier");
++--------+---------+------------+----------+--------+
+| emp_id | name    | desig      | dept     | salary |
++--------+---------+------------+----------+--------+
+|      4 | Saad    | Accountant | Deposit  |  25000 |
+|      5 | Huzaifa | Cashier    | Accounts |  32000 |
+|      8 | Hafsa   | Cashier    | Accounts |  25000 |
++--------+---------+------------+----------+--------+
+
+
+TASK 5 :-
+
+SELECT name, salary, salary/285 AS "Salary In Dollars" FROM employees;
++----------------+--------+-------------------+
+| name           | salary | Salary In Dollars |
++----------------+--------+-------------------+
+| Hasan          |  75000 |          263.1579 |
+| Umer           |  52000 |          182.4561 |
+| Saad           |  25000 |           87.7193 |
+| Huzaifa        |  32000 |          112.2807 |
+| Ayesha Bangali |  25000 |           87.7193 |
+| Umer           |  52000 |          182.4561 |
+| Hafsa          |  25000 |           87.7193 |
++----------------+--------+-------------------+
+
+OR
+
+CASE Condition :-
+
+SELECT name, salary,
+CASE WHEN salary != 0 THEN salary/285
+END
+AS "Salary In Dollars"
+FROM employees;
++----------------+--------+-------------------+
+| name           | salary | Salary In Dollars |
++----------------+--------+-------------------+
+| Hasan          |  75000 |          263.1579 |
+| Umer           |  52000 |          182.4561 |
+| Saad           |  25000 |           87.7193 |
+| Huzaifa        |  32000 |          112.2807 |
+| Ayesha Bangali |  25000 |           87.7193 |
+| Umer           |  52000 |          182.4561 |
+| Hafsa          |  25000 |           87.7193 |
++----------------+--------+-------------------+
