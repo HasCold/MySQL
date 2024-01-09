@@ -1,0 +1,71 @@
+Unique Constraints -->> Basically it works like a Primary Key but the problem is here we can made only one thing unique in our table by the Primary Key. Suppose you have to set two unique things in your table like Id and phone number so you can use the UNIQUE CONSTRAINTS. 
+
+CREATE TABLE contacts(
+    -> id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(50),
+    -> mob VARCHAR(50) UNIQUE);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> DESC contacts;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50) | YES  |     | NULL    |                |
+| mob   | varchar(50) | YES  | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+INSERT INTO contacts(name, mob)
+    -> VALUES ("Hasan", "03330224926");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM contacts;
++----+-------+-------------+
+| id | name  | mob         |
++----+-------+-------------+
+|  1 | Hasan | 03330224926 |
++----+-------+-------------+
+
+
+
+------------------------------------- Check Constraints --------------------------------------
+
+# Check Constraints is used for example when we want to make sure phone no. is atleast 11 digits but there is an issue when any third person is entering into DB so they cannot identify what's the problem is going on so we have another advanced way of doing that same thing is "Named Constraints"
+
+
+ CREATE TABLE contacts(
+    -> id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(20),
+    -> mob VARCHAR(30) NOT NULL UNIQUE CHECK (LENGTH(mob) >= 10)
+    -> );
+
+
+ DESC contacts;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | YES  |     | NULL    |                |
+| mob   | varchar(30) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+ INSERT INTO contacts(name, mob)
+    -> VALUES ("Hasan", 03330224926);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM contacts;
++----+-------+------------+
+| id | name  | mob        |
++----+-------+------------+
+|  1 | Hasan | 3330224926 |
++----+-------+------------+
+
+
+SELECT * FROM contacts WHERE CHAR_LENGTH(mob) = 10;
++----+-------+------------+
+| id | name  | mob        |
++----+-------+------------+
+|  1 | Hasan | 3330224926 |
++----+-------+------------+
