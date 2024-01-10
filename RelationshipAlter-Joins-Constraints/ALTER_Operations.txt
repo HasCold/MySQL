@@ -1,0 +1,75 @@
+ALTER Operations 
+
+ALTERING TABLES :- 
+
+How to add or remove a Column
+
+ALTER TABLE contacts2
+ADD COLUMN name VARCHAR(20) NOT NULL DEFAULT "employee";
+
+
+ DESC contacts2;
++-------+-------------+------+-----+----------+-------+
+| Field | Type        | Null | Key | Default  | Extra |
++-------+-------------+------+-----+----------+-------+
+| mob   | varchar(20) | YES  | UNI | NULL     |       |
+| name  | varchar(20) | NO   |     | employee |       |
++-------+-------------+------+-----+----------+-------+
+
+
+ALTER TABLE contacts2
+DROP COLUMN name;
+
+
+How to rename a column or table name ?
+
+ALTER TABLE employees
+RENAME COLUMN name TO fullName;
+
++----------+-------------+------+-----+-----------+----------------+
+| Field    | Type        | Null | Key | Default   | Extra          |
++----------+-------------+------+-----+-----------+----------------+
+| emp_id   | int         | NO   | PRI | NULL      | auto_increment |
+| fullName | varchar(20) | NO   |     | NULL      |                |
+| desig    | varchar(30) | NO   |     | Probation |                |
+| dept     | varchar(20) | NO   |     | NULL      |                |
+| salary   | int         | NO   |     | 25000     |                |
++----------+-------------+------+-----+-----------+----------------+
+
+
+
+How to rename the whole Table name
+
+ ALTER TABLE contacts
+ RENAME TO myContacts;
+Query OK, 0 rows affected (0.14 sec)
+
+
+How to modify the column
+Changing DataType or adding Default Values;
+
+ ALTER TABLE contacts
+ MODIFY mob VARCHAR(15) DEFAULT "Unknown";
+
+mysql> DESC contacts;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | YES  |     | NULL    |                |
+| mob   | varchar(15) | YES  | UNI | Unknown |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+ ALTER TABLE orders
+ MODIFY COLUMN date DATETIME;
+
+  DESC orders;
++---------+---------------+------+-----+---------+----------------+
+| Field   | Type          | Null | Key | Default | Extra          |
++---------+---------------+------+-----+---------+----------------+
+| ord_id  | int           | NO   | PRI | NULL    | auto_increment |
+| date    | datetime      | YES  |     | NULL    |                |
+| amount  | decimal(10,2) | YES  |     | NULL    |                |
+| cust_id | int           | YES  | MUL | NULL    |                |
++---------+---------------+------+-----+---------+----------------+

@@ -69,3 +69,13 @@ SELECT * FROM contacts WHERE CHAR_LENGTH(mob) = 10;
 +----+-------+------------+
 |  1 | Hasan | 3330224926 |
 +----+-------+------------+
+
+
+
+-------------------------------- Named Constraints -------------------------
+
+CREATE TABLE contacts2(
+    -> mob VARCHAR(20) UNIQUE,
+    -> CONSTRAINT mobileNumber_less_than_10digits CHECK(LENGTH(mob) >= 10)
+    -> );
+
