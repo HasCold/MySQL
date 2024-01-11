@@ -6,3 +6,64 @@ Types Of JOINS :-
 . Left Join
 . Right Join
 
+
+Cross Join :- 
+Every row from one table is combined with every row from another table.Its not very popular to use the Cross Join
+
+ SELECT * FROM customer, orders;
++---------+-------+--------------------+--------+---------------------+---------+---------+
+| cust_id | name  | email              | ord_id | date                | amount  | cust_id |
++---------+-------+--------------------+--------+---------------------+---------+---------+
+|       1 | Hasan | ha0332@gmail.com   |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
+|       1 | Hasan | ha0332@gmail.com   |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       1 | Hasan | ha0332@gmail.com   |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       1 | Hasan | ha0332@gmail.com   |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
+|       2 | Umer  | umer1298@gmail.com |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
+|       2 | Umer  | umer1298@gmail.com |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       2 | Umer  | umer1298@gmail.com |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       2 | Umer  | umer1298@gmail.com |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
+|       3 | Saad  | saad@gmail.com     |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
+|       3 | Saad  | saad@gmail.com     |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       3 | Saad  | saad@gmail.com     |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       3 | Saad  | saad@gmail.com     |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
+|       4 | Talha | talha231@gmail.com |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
+|       4 | Talha | talha231@gmail.com |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       4 | Talha | talha231@gmail.com |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       4 | Talha | talha231@gmail.com |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
++---------+-------+--------------------+--------+---------------------+---------+---------+
+
+
+Inner Join :-
+Returns only the rows where there is a match between the specified columns in both the left(or first) and right(or second) tables.
+
+ SELECT * FROM customer
+    -> INNER JOIN orders
+    -> ON orders.cust_id = customer.cust_id;
++---------+-------+--------------------+--------+---------------------+---------+---------+
+| cust_id | name  | email              | ord_id | date                | amount  | cust_id |
++---------+-------+--------------------+--------+---------------------+---------+---------+
+|       1 | Hasan | ha0332@gmail.com   |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
+|       2 | Umer  | umer1298@gmail.com |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       3 | Saad  | saad@gmail.com     |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       4 | Talha | talha231@gmail.com |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
++---------+-------+--------------------+--------+---------------------+---------+---------+
+
+
+
+ SELECT name, SUM(amount) AS Total_Purchasing FROM customer
+    -> INNER JOIN orders
+    -> ON orders.cust_id = customer.cust_id
+    -> GROUP BY name;
++-------+------------------+
+| name  | Total_Purchasing |
++-------+------------------+
+| Hasan |          2034.90 |
+| Umer  |          2100.22 |
+| Saad  |          1211.11 |
+| Talha |          2210.00 |
++-------+------------------+
+
+
+
+Left Join :-
+Returns all rows from the left(or first) table and the matching rows from the right (or second) table.
