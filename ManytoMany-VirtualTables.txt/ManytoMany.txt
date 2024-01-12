@@ -1,0 +1,32 @@
+Many to Many Relationship
+
+INSERT INTO student_course(student_id, course_id)
+VALUES (1, 101), (1, 102), (2, 104), (3, 104), (2, 103);
+
+SELECT * FROM student_course;
++------------+-----------+
+| student_id | course_id |
++------------+-----------+
+|          1 |       101 |
+|          1 |       102 |
+|          2 |       104 |
+|          3 |       104 |
+|          2 |       103 |
++------------+-----------+
+
+## Joins with Many to Many Relationship Case
+
+ SELECT student_name, course_name FROM students
+    -> JOIN student_course
+    -> ON student_course.student_id = students.id
+    -> JOIN courses
+    -> ON student_course.course_id = courses.id;
++--------------+-------------+
+| student_name | course_name |
++--------------+-------------+
+| Hasan        | PD          |
+| Hasan        | Golang      |
+| Huzaifa      | Solidity    |
+| Huzaifa      | JS          |
+| Umer         | Solidity    |
++--------------+-------------+

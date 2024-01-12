@@ -49,3 +49,54 @@ Task 2 :-
 
 Task 3 :-
 
+ SELECT author_name, title, ratings FROM authors
+    -> LEFT JOIN books
+    -> ON books.author_id = authors.author_id;
++-------------+--------------------+---------+
+| author_name | title              | ratings |
++-------------+--------------------+---------+
+| Hasan       | Love story         |       8 |
+| Hasan       | Golang Docs        |       9 |
+| Umer        | Story of Barbarosa |       5 |
+| Talha       | NULL               |    NULL |
+| Saad        | Quaid-e-Azam       |       5 |
++-------------+--------------------+---------+
+5 rows in set (0.00 sec)
+
+
+Task 4 :-
+
+ SELECT author_name, IFNULL(title, "NOT FOUND"), IFNULL(ratings, 0) FROM authors
+    -> LEFT JOIN books
+    -> ON books.author_id = authors.author_id;
++-------------+----------------------------+--------------------+
+| author_name | IFNULL(title, "NOT FOUND") | IFNULL(ratings, 0) |
++-------------+----------------------------+--------------------+
+| Hasan       | Love story                 |                  8 |
+| Hasan       | Golang Docs                |                  9 |
+| Umer        | Story of Barbarosa         |                  5 |
+| Talha       | NOT FOUND                  |                  0 |
+| Saad        | Quaid-e-Azam               |                  5 |
++-------------+----------------------------+--------------------+
+
+
+
+Task 5 :-
+
+ SELECT author_name, ratings,
+    -> CASE WHEN IFNULL(ratings, 0) >= 6 THEN "Good"
+    -> WHEN IFNULL(ratings, 0) >= 4 THEN "Medium"
+    -> ELSE "Low"
+    -> END
+    -> AS Remark
+    -> FROM authors
+    -> INNER JOIN books
+    -> ON books.author_id = authors.author_id;
++-------------+---------+--------+
+| author_name | ratings | Remark |
++-------------+---------+--------+
+| Umer        |       5 | Medium |
+| Hasan       |       9 | Good   |
+| Saad        |       5 | Medium |
+| Hasan       |       8 | Good   |
++-------------+---------+--------+

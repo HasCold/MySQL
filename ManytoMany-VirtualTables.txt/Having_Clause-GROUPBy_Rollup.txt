@@ -1,0 +1,28 @@
+Having and RollUp Clause
+
+We can you the Having Clause where the WHERE Condition doesn't work with the GROUP BY method;
+
+SELECT student_name, SUM(fees) FROM inst_info GROUP BY student_name;  // -->> inst_info is a Virtual Table
++--------------+-----------+
+| student_name | SUM(fees) |
++--------------+-----------+
+| Hasan        |      8000 |
+| Huzaifa      |    100000 |
+| Umer         |     55000 |
++--------------+-----------+
+
+
+SELECT student_name, SUM(fees) FROM inst_info
+GROUP BY (student_name)
+HAVING SUM(fees) >= 10000;
++--------------+-----------+
+| student_name | SUM(fees) |
++--------------+-----------+
+| Huzaifa      |    100000 |
+| Umer         |     55000 |
++--------------+-----------+
+
+
+
+------------------------- GROUP BY ROLLUP -------------------------------
+

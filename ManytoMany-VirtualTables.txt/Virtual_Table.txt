@@ -1,0 +1,28 @@
+What is Virtual Table
+
+CREATE VIEW inst_info AS
+SELECT student_name, course_name, fees FROM students
+JOIN student_course
+ON student_course.student_id = students.id
+JOIN courses
+ON student_course.course_id = courses.id;
+
+ SELECT * FROM inst_info;
++--------------+-------------+-------+
+| student_name | course_name | fees  |
++--------------+-------------+-------+
+| Hasan        | PD          |  3000 |
+| Hasan        | Golang      |  5000 |
+| Huzaifa      | Solidity    | 55000 |
+| Huzaifa      | JS          | 45000 |
+| Umer         | Solidity    | 55000 |
++--------------+-------------+-------+
+
+
+ SELECT * FROM inst_info WHERE course_name = "Solidity";
++--------------+-------------+-------+
+| student_name | course_name | fees  |
++--------------+-------------+-------+
+| Huzaifa      | Solidity    | 55000 |
+| Umer         | Solidity    | 55000 |
++--------------+-------------+-------+
