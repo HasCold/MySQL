@@ -67,3 +67,50 @@ Returns only the rows where there is a match between the specified columns in bo
 
 Left Join :-
 Returns all rows from the left(or first) table and the matching rows from the right (or second) table.
+
+
+ SELECT name, SUM(amount) FROM customer
+    -> LEFT JOIN orders
+    -> ON orders.cust_id = customer.cust_id
+    -> GROUP BY name;
++-------+-------------+
+| name  | SUM(amount) |
++-------+-------------+
+| Hasan |     2034.90 |
+| Umer  |     2100.22 |
+| Saad  |     1211.11 |
+| Talha |     2210.00 |
++-------+-------------+
+
+---------------------- If amount is null
+
+SELECT name, IFNULL(SUM(amount), 0) AS TotalAmount FROM customer
+    -> LEFT JOIN orders
+    -> ON orders.cust_id = customer.cust_id
+    -> GROUP BY name;
++-------+-------------+
+| name  | TotalAmount |
++-------+-------------+
+| Hasan |     2034.90 |
+| Umer  |     2100.22 |
+| Saad  |     1211.11 |
+| Talha |     2210.00 |
++-------+-------------+
+
+
+
+Right Join :- 
+Returns all rows from the righto(or second) table and the matching rows from the left(or first) table.
+
+ SELECT * FROM customer
+    -> RIGHT JOIN orders
+    -> ON orders.cust_id = customer.cust_id;
++---------+-------+--------------------+--------+---------------------+---------+---------+
+| cust_id | name  | email              | ord_id | date                | amount  | cust_id |
++---------+-------+--------------------+--------+---------------------+---------+---------+
+|       1 | Hasan | ha0332@gmail.com   |      1 | 2024-01-11 01:34:31 | 1032.55 |       1 |
+|       2 | Umer  | umer1298@gmail.com |      4 | 2024-01-11 01:39:29 | 2100.22 |       2 |
+|       3 | Saad  | saad@gmail.com     |      5 | 2024-01-11 01:44:47 | 1211.11 |       3 |
+|       4 | Talha | talha231@gmail.com |      6 | 2024-01-11 01:44:47 | 2210.00 |       4 |
+|       1 | Hasan | ha0332@gmail.com   |      7 | 2024-01-11 15:41:28 | 1002.35 |       1 |
++---------+-------+--------------------+--------+---------------------+---------+---------+

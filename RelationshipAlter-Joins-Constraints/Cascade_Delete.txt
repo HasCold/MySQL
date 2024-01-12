@@ -1,0 +1,29 @@
+Cascade ON DELETE 
+
+This is very help in those tables when we delete any user data but they can't be deleted because it is bind with the relationship with another table.
+
+So there can be a requirement for deleteing any customer and also the data which is related to another tables can be deleted easily.
+
+CREATE TABLE orders(
+    -> ord_id INT PRIMARY KEY AUTO_INCREMENT,
+    -> date DATETIME,
+    -> amount DECIMAL(10, 2),
+    -> cust_id INT,
+    -> FOREIGN KEY (cust_id) REFERENCES customer(cust_id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+
+SELECT name, IFNULL(SUM(amount), 0) FROM customer
+    -> RIGHT JOIN orders
+    -> ON orders.cust_id = customer.cust_id
+    -> GROUP BY name;
++-------+------------------------+
+| name  | IFNULL(SUM(amount), 0) |
++-------+------------------------+
+| Hasan |                1445.79 |
+| Saad  |                 232.11 |
+| Umer  |                1103.78 |
++-------+------------------------+
+
+
