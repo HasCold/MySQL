@@ -1,0 +1,34 @@
+Stored Routine :-
+An SQL statement or a set of SQL statement that can be stored on database server which can be call no. of times.
+
+Types of stored routine :-
+. STORED Procedure 
+. User defined Functions
+
+It is like a function in which we can stored some data and later can also be called.
+
+Syntax :- 
+
+DELIMITER $$
+CREATE PROCEDURE emp_info()
+BEGIN
+SELECT * FROM employees ORDER BY salary;
+END$$
+DELIMITER ;
+
+
+You can call the function like below :- 
+. call bank_db.emp_info();   OR   call emp_info();
+
+
+DELIMITER $$
+CREATE PROCEDURE emp_desig()
+BEGIN 
+SELECT emp_id, fullName, desig FROM employees;
+END$$
+DELIMITER ;
+
+call emp_desig();
+
+
+Arguments Passing in Stored Procedure 
