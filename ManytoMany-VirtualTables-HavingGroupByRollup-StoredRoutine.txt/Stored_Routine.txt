@@ -31,4 +31,27 @@ DELIMITER ;
 call emp_desig();
 
 
-Arguments Passing in Stored Procedure 
+--------------------------- Arguments Passing in Stored Procedure ------------------
+
+DELIMITER $$
+CREATE PROCEDURE get_empid(IN p_name VARCHAR(20))
+BEGIN
+	SELECT emp_id FROM employees
+    WHERE fullName = p_name;
+END$$
+DELIMITER ;
+
+call get_empid("Hasan");  // -->> 1
+
+
+
+---------------------------- Returning output in variable Stored Procedure ----------------------
+
+DELIMITER $$
+CREATE PROCEDURE get_sumByDept(IN p_dept VARCHAR(20), OUT p_sum DECIMAL(10,2))
+BEGIN
+SELECT SUM(salary) INTO p_sum FROM employees
+WHERE dept = p_dept;
+END $$
+
+DELIMITER ;

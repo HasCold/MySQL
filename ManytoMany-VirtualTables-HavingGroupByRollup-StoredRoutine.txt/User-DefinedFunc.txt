@@ -1,0 +1,21 @@
+--------------------------- User Defined Functions ----------------------- 
+
+DELIMITER $$
+
+CREATE FUNCTION emp_NameSalary() RETURNS VARCHAR(20)
+DETERMINISTIC NO SQL READS SQL DATA
+BEGIN
+	DECLARE v_max INT;
+    DECLARE v_emp_name VARCHAR(20);
+    
+    SELECT MAX(salary) INTO v_max FROM employees;
+    SELECT fullName INTO v_emp_name FROM employees
+    WHERE salary = v_max;
+    
+    return v_emp_name;
+END$$
+
+DELIMITER ;
+
+
+select bank_db.emp_NameSalary();

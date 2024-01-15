@@ -1,0 +1,111 @@
+Window Function :- 
+Window Function also known as analytic functions allow you to perform calculations across a set of rows related to the current row.
+
+
+Defined by an OVER() clause;
+
+SELECT emp_id, dept, salary, SUM(salary) OVER(PARTITION BY dept) AS sum_salary FROM employees; ------>> By the window Funcion we get a visibility comparison in the form of another column row
+
+emp_id   dept       salary   sum_salary
+5	    Accounts	32000	  109000
+7	    Accounts	52000	  109000
+8	    Accounts	25000	  109000
+2	    Cash	    52000     52000
+4	    Deposit	    25000     25000
+1	    IT (Tech)	75000	  100000
+6	    IT (Tech)	25000	  100000
+
+
+-------------------- ROW NUMBER  ------------------------
+
+ SELECT 
+ ROW_NUMBER() OVER(ORDER BY salary) AS row_no,
+ emp_id, dept, salary
+ FROM employees;
+
+
+ SELECT 
+ ROW_NUMBER() OVER(PARTITION BY dept) AS row_no,
+ emp_id, dept, salary
+ FROM employees;
+
+
+-------------------- RANK()  ------------------------
+
+    SELECT 
+	emp_id,
+    dept,
+    salary,
+    RANK() OVER(ORDER BY salary DESC ) AS rank_sal
+    FROM employees;
+
+
+emp_id    dept          salary      rank_sal
+1	    IT (Tech)	     75000	        1
+2	    Cash	         52000	        2
+7	    Accounts	     52000	        2
+5	    Accounts	     32000	        4
+4	    Deposit	         25000	        5
+6	    IT (Tech)	     25000	        5
+8	    Accounts	     25000	        5
+
+
+
+-------------------- DENSE_RANK()  ------------------------ (Preferable to use this Dense_Rank() over Rank())
+
+    SELECT 
+	emp_id,
+    dept,
+    salary,
+    DENSE_RANK() OVER(ORDER BY salary DESC) 
+    FROM employees;
+
+
+emp_id    dept          salary      rank_sal
+1	    IT (Tech)	     75000	        1
+2	    Cash	         52000	        2
+7	    Accounts	     52000	        2
+5	    Accounts	     32000	        3
+4	    Deposit	         25000	        4
+6	    IT (Tech)	     25000	        4
+8	    Accounts	     25000	        4
+
+
+
+-------------------- LAG()  ------------------------
+
+    SELECT 
+	emp_id,
+    dept,
+    LAG(salary) OVER() AS lag_sal   // LAG function give you the previous one salary 
+    FROM employees;
+
+
+emp_id    dept        Salary       lag_sal
+1	    IT (Tech)	   75000        Null
+2	    Cash	       52000        75000
+4	    Deposit	       25000        52000
+5	    Accounts	   32000        25000
+6	    IT (Tech)	   25000        32000
+7	    Accounts	   52000        25000
+8	    Accounts	   25000        52000
+
+
+
+-------------------- LEAD()  ------------------------
+
+    SELECT 
+	emp_id,
+    dept,
+    salary,
+    LEAD(salary) OVER() AS lead_sal   // -->> LEAD function give you the proceeding one salary 
+    FROM employees;
+    
+emp_id        dept          salary      lead_sal
+1	        IT (Tech)	    75000	     52000
+2	        Cash	        52000  	     25000
+4	        Deposit	        25000	     32000
+5	        Accounts	    32000	     25000
+6	        IT (Tech)	    25000	     52000
+7	        Accounts	    52000	     25000
+8	        Accounts	    25000	     Null
