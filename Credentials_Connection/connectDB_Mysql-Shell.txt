@@ -1,0 +1,6 @@
+If you are trying to connect with mysql shell command then use this :- 
+
+=> mysql -u root -p
+password: Hasan
+
+mysql> <Write Your Command>
