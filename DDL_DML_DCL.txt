@@ -1,0 +1,19 @@
+DDL = Data Definition Language
+
+DML = Data Manipulation Language
+
+DCL = Data Control Language
+
+TCL = Transaction Control Language
+
+----------------------------------------
+
+- DDL deals with the structure of the database. (CREATE, ALTER, DROP)
+
+- DML commands let you insert, update or delete data within the database tables. (SELECT, INSERT, UPDATE, DELETE)
+
+- DCL commands are used to control access to data in a database. (GRANT, REVOKE)
+
+- TCL commands are used to manage transactions within a database, ensuring data integrity and consistency. (COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION)
+
+----------------------------------------

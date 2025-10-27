@@ -1,0 +1,35 @@
+There are thre types of data types in SQL
+
+1. Numeric
+2. String
+3. Date time
+
+----------------------------------------------------------------
+
+------------------------- NUMBER CATEGORY --------------------------
+1. TINYINT         
+2. SMALLINT          
+3. MEDIUMINT
+4. INT/INTEGER
+5. BIGINT
+6. FLOAT  -->> precision not confirmed
+7. DOUBLE -->> precision not confirmed
+8. DECIMAL(p,s)  -->> (total number, no. of digits after decimal point)
+precision, scale ==>> (8, 2) = can store: 123456.78
+----------------------------------------------------------------
+
+------------------------- STRING CATEGORY --------------------------
+1. CHAR(n)
+2. VARCHAR(n)  -->> It is stored inside of the table          
+3. TINYTEXT
+4. TEXT -->> It is stored outside of the table
+5. MEDIUMTEXT
+6. LONGTEXT
+7. ENUM('val1', 'val2', ...)
+8. SET('val1', 'val2', ...)
+
+. The main difference between the VARCHAR and TEXT is we can fully indexed the VARCHAR but can only indexed the prefix of the TEXT column.
+
+. ENUM -->> pre-defined values, 65,000 members
+
+----------------------------------------------------------------
