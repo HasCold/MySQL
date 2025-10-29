@@ -33,3 +33,25 @@ precision, scale ==>> (8, 2) = can store: 123456.78
 . ENUM -->> pre-defined values, 65,000 members
 
 ----------------------------------------------------------------
+
+------------------------- DateTime CATEGORY --------------------------
+1. DATE
+2. DATETIME            
+3. TIMESTAMP
+4. TIME
+5. YEAR
+
+----------------------------------------------------------------
+
+------------------------- Binary Data Type --------------------------
+- Data stored in binary form.
+- Blob => Binary Large Object.
+
+1. BINARY(n) = 255 bytes 
+2. VARBINARY(n) = 64KB
+3. TINYBLoB(n) = 255 bytes
+4. BLoB(n) = 64KB
+5. MEDIUMBLoB(n) = 16MBB
+6. LONGBLoB(n) = 4GB
+
+----------------------------------------------------------------

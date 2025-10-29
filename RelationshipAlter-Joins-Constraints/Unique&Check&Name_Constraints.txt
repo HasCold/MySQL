@@ -1,5 +1,7 @@
 Unique Constraints -->> Basically it works like a Primary Key but the problem is here we can made only one thing unique in our table by the Primary Key. Suppose you have to set two unique things in your table like Id and phone number so you can use the UNIQUE CONSTRAINTS. 
 
+- Both PRIMARY KEY and UNIQUE CONSTRAINT creates INDEX along the column that is being applied.
+
 CREATE TABLE contacts(
     -> id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     -> name VARCHAR(50),
@@ -79,3 +81,17 @@ CREATE TABLE contacts2(
     -> CONSTRAINT mobileNumber_less_than_10digits CHECK(LENGTH(mob) >= 10)
     -> );
 
+
+------------------- UNIQUE PRIMARY KEY DEFAULT CONSTRAINT -------------------------
+CREATE TABLE employees (
+token INT PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+hire_date DATE DEFAULT (CURRENT_DATE()),
+email VARCHAR(100) UNIQUE,
+phone_number VARCHAR(100) UNIQUE,
+salary DECIMAL(10,2) CHECK (salary > 0.0),
+employment_status ENUM('active', 'on leave', 'terminated') DEFAULT 'active',
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
