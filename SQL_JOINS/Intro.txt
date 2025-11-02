@@ -1,0 +1,225 @@
+
+## 🎯 Setup Example
+
+We’ll use two simple tables:
+
+### 🧍 `employees`
+
+| emp_id | name    | dept_id |
+| ------ | ------- | ------- |
+| 1      | Alice   | 10      |
+| 2      | Bob     | 20      |
+| 3      | Charlie | 30      |
+| 4      | David   | NULL    |
+
+### 🏢 `departments`
+
+| dept_id | dept_name |
+| ------- | --------- |
+| 10      | HR        |
+| 20      | IT        |
+| 40      | Finance   |
+
+---
+
+## 🟢 1. **INNER JOIN**
+
+> Returns rows that **exist in both** tables.
+
+```sql
+SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d
+ON e.dept_id = d.dept_id;
+```
+
+**Result:**
+
+| name  | dept_name |
+| ----- | --------- |
+| Alice | HR        |
+| Bob   | IT        |
+
+✅ Only matching dept_id (10 & 20).
+Charlie’s 30 and David’s NULL don’t exist in `departments`.
+
+---
+
+## 🔵 2. **LEFT JOIN** (a.k.a. LEFT OUTER JOIN)
+
+> Returns **all rows from the left table**, and matching ones from the right.
+> If no match → `NULL` on the right side.
+
+```sql
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.dept_id;
+```
+
+**Result:**
+
+| name    | dept_name |
+| ------- | --------- |
+| Alice   | HR        |
+| Bob     | IT        |
+| Charlie | NULL      |
+| David   | NULL      |
+
+✅ Everyone from `employees` appears — even if not in `departments`.
+
+---
+
+## 🟠 3. **RIGHT JOIN** (a.k.a. RIGHT OUTER JOIN)
+
+> Opposite of LEFT JOIN — returns **all rows from the right table** and matching ones from the left.
+
+```sql
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d
+ON e.dept_id = d.dept_id;
+```
+
+**Result:**
+
+| name  | dept_name |
+| ----- | --------- |
+| Alice | HR        |
+| Bob   | IT        |
+| NULL  | Finance   |
+
+✅ All departments appear — even if no employee belongs (Finance has none).
+
+---
+
+## 🔴 4. **CROSS JOIN**
+
+> Returns **every possible combination** of rows between both tables.
+
+```sql
+SELECT e.name, d.dept_name
+FROM employees e
+CROSS JOIN departments d;
+```
+
+**Result:** (4 employees × 3 departments = 12 rows!)
+
+| name    | dept_name |
+| ------- | --------- |
+| Alice   | HR        |
+| Alice   | IT        |
+| Alice   | Finance   |
+| Bob     | HR        |
+| Bob     | IT        |
+| Bob     | Finance   |
+| Charlie | HR        |
+| ...     | ...       |
+
+✅ Used rarely — mostly for testing or special calculations.
+
+---
+
+## 🧍‍♂️ 5. **SELF JOIN**
+
+> A table joins **with itself** — useful for hierarchical data (like managers and employees).
+
+Example:
+Let’s say `employees` has a `manager_id` column referencing another employee.
+
+| emp_id | name    | manager_id |
+| ------ | ------- | ---------- |
+| 1      | Alice   | NULL       |
+| 2      | Bob     | 1          |
+| 3      | Charlie | 1          |
+| 4      | David   | 2          |
+
+```sql
+SELECT e.name AS employee, m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+ON e.manager_id = m.emp_id;
+```
+
+**Result:**
+
+| employee | manager |
+| -------- | ------- |
+| Alice    | NULL    |
+| Bob      | Alice   |
+| Charlie  | Alice   |
+| David    | Bob     |
+
+✅ You can give the same table **aliases (e, m)** to treat it like two.
+
+---
+
+## 🧩 6. **UNION**
+
+> Combines results from **two SELECTs** and removes duplicates.
+
+```sql
+SELECT name FROM employees
+UNION
+SELECT dept_name FROM departments;
+```
+
+**Result:**
+
+```
+Alice
+Bob
+Charlie
+David
+HR
+IT
+Finance
+```
+
+✅ Removes duplicates automatically.
+⚠️ Each SELECT must return the **same number of columns** and compatible data types.
+
+---
+
+## 🧱 7. **UNION ALL**
+
+> Same as UNION, but **keeps duplicates**.
+
+```sql
+SELECT name FROM employees
+UNION ALL
+SELECT dept_name FROM departments;
+```
+
+**Result:**
+
+```
+Alice
+Bob
+Charlie
+David
+HR
+IT
+Finance
+```
+
+(If there were overlaps, they’d appear multiple times.)
+
+✅ Faster than `UNION` since it doesn’t remove duplicates.
+
+---
+
+## 🎓 Quick Summary
+
+| Type           | What it Does                       | Keeps Unmatched? |
+| -------------- | ---------------------------------- | ---------------- |
+| **INNER JOIN** | Only matching rows                 | ❌                |
+| **LEFT JOIN**  | All from left + matches            | ✅ Left side      |
+| **RIGHT JOIN** | All from right + matches           | ✅ Right side     |
+| **CROSS JOIN** | All combinations                   | N/A              |
+| **SELF JOIN**  | Join table to itself               | N/A              |
+| **UNION**      | Combine results, remove duplicates | ❌                |
+| **UNION ALL**  | Combine results, keep duplicates   | ✅                |
+
+---
+

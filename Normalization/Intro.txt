@@ -1,0 +1,7 @@
+--------------------- Normalization -------------------------
+
+- Normalization is a process to organize data in your database to reduce a redundancy.
+
+- All Normlization Forms (1NF, 2NF, 3NF) Notes Link :- 
+https://gist.github.com/thevipulvats/5d04e95525c0e377e13954172fff4ee1
+
